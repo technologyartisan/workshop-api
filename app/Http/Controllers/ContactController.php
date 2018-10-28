@@ -45,7 +45,7 @@ class ContactController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Gagal menambahkan data'
-            ]);
+            ],500);
         }
 
         $picture=strtolower($request->name[0].'.png');
@@ -58,7 +58,7 @@ class ContactController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Contact berhasil ditambahkan'
-        ]);
+        ],201);
     }
 
     /**
