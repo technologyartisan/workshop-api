@@ -23,18 +23,24 @@ class NotificationController extends Controller
         }
 
         $title=$request->title;
-        $key = 'AIzaSyAsCpI_EBtJI-MOqEcOafzR_gwawNh4_00';
+        $token=$request->fcm_token;
+
+        $key = 'AIzaSyBg6gaBrjXAUTLreJrH_98pYJi1J68puso';
         $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
 
+        $banyak_token=[
+            'token1',
+            'token2',
+        ];
         
-        $token=$request->fcm_token;
         $headers = array(
             'Authorization: key='.$key,
             'Content-Type: application/json'
         );
-        
+
         $fields = array(
             'to' => $token,
+            'registration_ids'=>$banyak_token,
             'notification' => array(
                 'title' => $title,
                 'body' => $request->message,
