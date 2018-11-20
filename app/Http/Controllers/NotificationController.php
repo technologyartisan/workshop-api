@@ -25,7 +25,7 @@ class NotificationController extends Controller
         $title=$request->title;
         $token=$request->fcm_token;
 
-        $key = 'AIzaSyBg6gaBrjXAUTLreJrH_98pYJi1J68puso';
+        $key = 'YOUR_API';
         $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
 
         $banyak_token=[
@@ -45,6 +45,9 @@ class NotificationController extends Controller
                 'title' => $title,
                 'body' => $request->message,
                 'sound'=>'default'
+            ),
+            'data' => array(
+                'id_barang' =>'1'
             )
         );
         
